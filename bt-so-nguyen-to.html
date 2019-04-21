@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai tap so nguyen to</title>
+</head>
+<body>
+<h3>Display the first numbers primes</h3>
+<label for="input">Input number: </label><input type="text" id="input" style="text-align: right;">
+<input type="button" value="Click me!" onclick="clickme();">
+<input type="button" value="Clear!" onclick="clearscreen();">
+<p id="result"></p>
+<script>
+    function clickme(){
+        let numbers = parseInt(document.getElementById('input').value);
+        let count = 0;
+        let N = 2;
+        let write = '';
+        while (count !== numbers) {
+            let check = true;
+            let i;
+            for (i = 2; i <= (N / 2); i++) {
+                if (N % i === 0) {
+                    check = false;
+                    break;
+                }
+            }
+            if (check) {
+                write += N + ' ';
+                count += 1;
+            }
+            N++;
+        }
+        document.getElementById('result').innerHTML = write;
+    }
+    function clearscreen() {
+        document.getElementById('input').value = '';
+        document.getElementById('result').innerHTML = '';
+    }
+</script>
+</body>
+</html>
